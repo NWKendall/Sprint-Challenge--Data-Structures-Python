@@ -3,14 +3,13 @@ class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
         self.queue = [None] * capacity
-        self.tail = -1
-        self.head = 0
+        self.tail = 0
+        self.head = 1
         self.size = 0
 
     def append(self, item):
         if not self:
             return None
-
         else:
             if self.size == self.capacity:
                 self.remove()
@@ -24,8 +23,8 @@ class RingBuffer:
         if self.size == 0:
             return
         else:
-            self.head = (self.head + 1) % self.capacity
             tmp = self.queue[self.head]
+            # self.head = (self.head + 1) % self.capacity
 
         self.size = self.size - 1
         return tmp
@@ -40,6 +39,16 @@ class RingBuffer:
                 vals.append(self.queue[index])
                 index = (index + 1) % self.capacity
             return vals
+    
+    def print_vals(self):
+        if self.size is None:
+            print("Queue is empty")
+        else:
+            index = self.head
+            for i in range(self.size):
+                print(self.queue[index])
+                index = (index + 1) % self.capacity
+            
 
     def get_head(self):
         return self.head
@@ -64,7 +73,7 @@ ased.append(10)
 print("Head", ased.get_head())
 print("Tail", ased.get_tail())
 
-ased.get()
+ased.print_vals()
 
 
 # define max capacity
