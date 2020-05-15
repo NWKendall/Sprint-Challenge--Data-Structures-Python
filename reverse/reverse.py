@@ -41,7 +41,7 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        # # iterative, cannit be recursive?
+        # iterative, cannit be recursive?
         # while node:
         #     # setting head to equal next node
         #     self.head = node
@@ -53,16 +53,16 @@ class LinkedList:
         #     prev = self.head
         # return prev
         
-        def rev_rec(node, prev):
+        # def rev_rec(node, prev):
 
-            if node is None:
-                return prev
+        #     if node is None:
+        #         return prev
             
-            self.head = node.next_node
-            node.next_node = prev
-            prev = node
-            node = self.head
-            return rev_rec(node, prev)
+        #     self.head = node.next_node
+        #     node.next_node = prev
+        #     prev = node
+        #     node = self.head
+        #     return rev_rec(node, prev)
         
-        self.head = rev_rec(node = self.head, prev=None)
+        # self.head = rev_rec(node = self.head, prev=None)
 
