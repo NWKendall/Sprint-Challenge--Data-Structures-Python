@@ -1,3 +1,5 @@
+import math
+
 class Node:
     def __init__(self, value=None, next_node=None):
         self.value = value
@@ -40,3 +42,5 @@ class LinkedList:
 
     def reverse_list(self, node, prev):
         pass
+
+        
