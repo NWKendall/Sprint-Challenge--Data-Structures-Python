@@ -67,12 +67,14 @@ class DoublyLinkedList:
         if not self.head and not self.tail:
             self.head = new_node
             self.tail = new_node
+            
         elif new_node is None:
             return
         else:
             new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
+            return new_node.value
 
     def new_head(self, item):
         ## creating new node to add to end
@@ -90,13 +92,13 @@ class DoublyLinkedList:
         # add one to len
 
     def get_values(self):
-        # values = []
+        values = []
         current = self.head
         while current is not None:
-            return current.value
+            values.append(current.value)
             current = current.next
         # values = [v for v in values if v is not None]
-        # return values
+        return values
         
 
 test = RingBuffer(5)
